@@ -25,6 +25,14 @@ class SeaLogistics(Logistics):
     def createTransport(self):
         return Ship(self.name)
 
+class FlyLogistics(Logistics):
+    def __init__(self, name):
+        self.name = name
+
+    def createTransport(self):
+        return Plane(self.name)
+
+
 class Transport(ABC):
     @abstractmethod
     def deliver(self):
@@ -51,6 +59,16 @@ class Ship(Transport):
                   "Transporte marítimo...")
         return result
 
+class Plane(Transport):
+    def __init__(self, name):
+        self.name = name
+        self.category = "plane"
+    
+    def deliver(self):
+        result = (f"{self.category} preparado para a entrega: {self.name}",
+                  "Transporte aéreo...")
+        return result
+
 
 def client_code(logistics: Logistics):
     print(
@@ -62,3 +80,5 @@ if __name__ == "__main__":
     client_code(RoadLogistics("Caminhão1"))
     print("\n")
     client_code(SeaLogistics("Navio1"))
+    print("\n")
+    client_code(FlyLogistics("Avião1"))
