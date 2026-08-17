@@ -5,7 +5,11 @@ class Logistics:
         pass
 
     def planDelivery(self):
-        pass
+        transport = self.createTransport()
+
+        result = f"Logistics: Transporte sendo preparado... \n{transport.deliver()}"
+
+        return result
 
 class RoadLogistics(Logistics):
     def __init__(self, name):
