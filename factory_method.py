@@ -52,5 +52,13 @@ class Ship(Transport):
         return result
 
 
+def client_code(logistics: Logistics):
+    print(
+        f"Carregado com {logistics.__class__.__name__}.",
+        logistics.planDelivery(),
+    )
 
-
+if __name__ == "__main__":
+    client_code(RoadLogistics("Caminhão1"))
+    print("\n")
+    client_code(SeaLogistics("Navio1"))
