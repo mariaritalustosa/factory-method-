@@ -37,3 +37,16 @@ class Truck(Transport):
         return result
 
 
+class Ship(Transport):
+    def __init__(self, name):
+        self.name = name
+        self.category = "ship"
+    
+    def deliver(self):
+        result = (f"{self.category} preparado para a entrega: {self.name}",
+                  "Transporte marítimo...")
+        return result
+
+
+
+
